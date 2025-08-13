@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/sidebar"
 import { Button } from "../ui/button"
 import { SignedIn, SignedOut } from "@clerk/nextjs"
-import UserTab from "./UserTab"
+import UserTab, { LoginButton } from "./UserTab"
 
 // Menu items.
 const items = [
@@ -76,7 +76,7 @@ export function AppSidebar() {
       {/* Sticky Footer */}
       <SidebarFooter className="my-2">
         <SignedOut>
-          <Button variant={'ghost'}>Login</Button>
+          <LoginButton/>
         </SignedOut>
         <SignedIn>
         <UserTab/>

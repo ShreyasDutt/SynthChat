@@ -1,7 +1,8 @@
 'use client'
-import { useClerk, UserButton, useUser } from '@clerk/nextjs'
+import { UserButton, useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { Button } from '../ui/button'
 
 
 const UserTab = () => {
@@ -17,6 +18,13 @@ const UserTab = () => {
           </div>
         </div>
   )
+}
+
+export const LoginButton = () => {
+    const router = useRouter();
+    return(
+        <Button variant={'ghost'} onClick={() => router.push('/sign-in')}>Login</Button>
+    )
 }
 
 export default UserTab
