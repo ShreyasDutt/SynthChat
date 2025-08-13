@@ -261,10 +261,11 @@ function SidebarTrigger({
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar()
-
+  // const {open} = useSidebar();
+  // console.log(open);
   return (
     <div className="flex items-center justify-between ">
-      <div className="bg-primary/10 m-4 rounded-md p-1">
+      <div className={`bg-primary/10 m-4 rounded-md p-1`}>
           <Button
           data-sidebar="trigger"
           data-slot="sidebar-trigger"
