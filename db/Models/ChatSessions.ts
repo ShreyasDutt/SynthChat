@@ -4,12 +4,12 @@ export interface ChatSessionI {
     title: string;
     userId: Types.ObjectId;
     messages?: Types.ObjectId[];
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
     chatsummary?:string;
 }
 
-const ChatSession = new Schema({
+const ChatSessionSchema = new Schema({
     title:{
         type:String,
         required:true
@@ -29,4 +29,5 @@ const ChatSession = new Schema({
 },{timestamps:true})
 
 
-export default models.ChatSession || model<ChatSessionI>("ChatSession",ChatSession);
+const ChatSession = models.ChatSession || model<ChatSessionI>("ChatSession",ChatSessionSchema);
+export default ChatSession;

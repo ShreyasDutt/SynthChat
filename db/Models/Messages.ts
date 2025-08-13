@@ -5,7 +5,7 @@ export interface MessageI {
     chatSessionId: Types.ObjectId;
     role: 'user' | 'ai';
     content:string;
-    createdAt:Date;
+    createdAt?:Date;
 }
 
 
@@ -26,4 +26,5 @@ const messageSchema = new Schema({
     }
 },{timestamps:{createdAt:true,updatedAt:false}})
 
-export default models.messages || model<MessageI>("messages",messageSchema);
+const Message = models.messages || model<MessageI>("messages",messageSchema);
+export default Message;
