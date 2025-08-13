@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, VariantProps } from "class-variance-authority"
-import { PanelLeftIcon, Plus } from "lucide-react"
+import { PanelLeftIcon, Plus, Settings2 } from "lucide-react"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
@@ -24,6 +24,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { ModeToggle } from "../shared/ModeToggle"
+import { SearchDialog } from "../shared/search-dialog"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -261,8 +263,9 @@ function SidebarTrigger({
   const { toggleSidebar } = useSidebar()
 
   return (
-    <div className="flex items-center justify-start bg-primary/10 w-fit m-4 rounded-md p-1">
-        <Button
+    <div className="flex items-center justify-between ">
+      <div className="bg-primary/10 m-4 rounded-md p-1">
+          <Button
           data-sidebar="trigger"
           data-slot="sidebar-trigger"
           variant="ghost"
@@ -277,7 +280,22 @@ function SidebarTrigger({
           <PanelLeftIcon />
           <span className="sr-only">Toggle Sidebar</span>
         </Button>
+        <SearchDialog/>
         <Button size={'icon'} variant={'ghost'} className="size-7"><Plus/></Button>
+      </div>
+
+      <div className="bg-primary/10 m-4 rounded-md p-1 items-center hidden md:flex">
+          <Button
+          variant="ghost"
+          size="icon"
+          className={("size-7")}
+        >
+          <Settings2 />
+          <span className="sr-only">Toggle Sidebar</span>
+        </Button>
+        <ModeToggle/>
+      </div>
+
     </div>
     
   )

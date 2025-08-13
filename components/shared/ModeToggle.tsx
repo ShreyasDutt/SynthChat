@@ -6,16 +6,23 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 
 export function ModeToggle() {
-  const { setTheme } = useTheme()
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   return (
-    <div>
-        <Button
-        className="rounded-full hover:bg-transparent text-sm"
-        variant={"ghost"}
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        size={'icon'}>{theme === "dark" ? <Moon /> : <Sun />}</Button>
-    </div>
+    <Button
+      className="hover:bg-transparent text-sm"
+      variant="ghost"
+      size="icon"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    >
+      {theme === "dark" ? <Sun /> : <Moon />}
+    </Button>
   )
 }

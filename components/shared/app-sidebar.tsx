@@ -1,3 +1,4 @@
+
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 
 import {
@@ -12,7 +13,8 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Button } from "../ui/button"
-import { SignedOut } from "@clerk/nextjs"
+import { SignedIn, SignedOut } from "@clerk/nextjs"
+import UserTab from "./UserTab"
 
 // Menu items.
 const items = [
@@ -44,6 +46,7 @@ const items = [
 ]
 
 export function AppSidebar() {
+
   return (
     <Sidebar>
       <SidebarContent>
@@ -75,6 +78,9 @@ export function AppSidebar() {
         <SignedOut>
           <Button variant={'ghost'}>Login</Button>
         </SignedOut>
+        <SignedIn>
+        <UserTab/>
+        </SignedIn>
         
       </SidebarFooter>
     </Sidebar>
