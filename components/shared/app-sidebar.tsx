@@ -52,11 +52,11 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="flex items-center justify-center">
-            Synth AI
+            SynthChat
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              <Button className="my-4">New Chat</Button>
+              <Button className="my-4"  >New Chat</Button>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>

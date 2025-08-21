@@ -8,6 +8,7 @@ const Page = () => {
     console.log(signOut)
   return (
     <div>
+      
         <Button onClick={()=>{signOut()}}>Logout</Button>
     </div>
   )
